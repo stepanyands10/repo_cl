@@ -15,7 +15,6 @@ DOC_DIR="docs"
 SHELL_DIR="scripts"
 OTHER_DIR="other"
 
-
 #Extension lists
 IMG_EXTS=("jpg" "jpeg" "png" "bmp" "JPG" "JPEG" "PNG" "BMP")
 DOC_EXTS=("txt" "md")
