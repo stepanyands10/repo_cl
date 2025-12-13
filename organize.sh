@@ -8,7 +8,7 @@ fi
 source ./config.sh
 source ./rules.sh
 
-if [ $"DRY_RUN" -eq 1 ]; then
+if [ "$DRY_RUN" -eq 1 ]; then
 	echo "[dry-run] $IMG_DIR will be created"
 	echo "[dry-run] $DOC_DIR will be created"
 	echo "[dry-run] $SHELL_DIR will be created"
