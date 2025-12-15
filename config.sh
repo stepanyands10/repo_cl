@@ -19,3 +19,5 @@ OTHER_DIR="other"
 IMG_EXTS=("jpg" "jpeg" "png" "bmp" "JPG" "JPEG" "PNG" "BMP")
 DOC_EXTS=("txt" "md")
 SHELL_EXTS=("sh")
+
+##
