@@ -1,1 +1,44 @@
-main
+name: CI/CD Pipeline  # Название workflow
+
+on:  # События, которые запускают workflow
+  push:  # При пуше в репозиторий
+    branches: [ main, develop ]  # Ветки, для которых срабатывает
+  pull_request:  # При создании pull request
+    branches: [ main ]
+  schedule:  # По расписанию (cron)
+    - cron: '0 2 * * *'  # Каждый день в 02:00
+  workflow_dispatch:  # Ручной запуск из интерфейса GitHub
+
+jobs:  # Определение jobs (заданий)
+  build:  # Первая job с именем "build"
+    runs-on: ubuntu-latest  # ОС для runner
+    
+    steps:  # Шаги, которые выполняются в job
+    # Шаг 1: Checkout кода
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    # Шаг 2: Настройка Node.js (пример для JavaScript проекта)
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    # Шаг 3: Установка зависимостей
+    - name: Install dependencies
+      run: npm ci
+      
+    # Шаг 4: Запуск тестов
+    - name: Run tests
+      run: npm test
+      
+    # Шаг 5: Сборка проекта
+    - name: Build project
+      run: npm run build
+      
+    # Шаг 6: Загрузка артефактов
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist-files
+        path: dist/
