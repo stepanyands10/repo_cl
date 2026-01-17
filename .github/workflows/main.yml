@@ -11,5 +11,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: First test
         run: echo Hello, world.
